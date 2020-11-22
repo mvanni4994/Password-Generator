@@ -17,17 +17,48 @@ var passSpSource = passSp.split ("");
 
 var passSource = [];
 
-// defines button variable to call character variables
+// defines button to call character variables
 var generateBtn = document.querySelector("#generate");
 
 // Variables to print data
-var charEl = document.querySelector("#char");
-var spcCharEl = document.querySelector("#spChar");
-var lCaseEl = document.querySelector("#lower");
-var uCaseEl = document.querySelector("#upper");
-var numCharEl = document.querySelector("#num");
+var char = document.querySelector("#char");
+var spChar = document.querySelector("#spChar");
+var lower = document.querySelector("#lower");
+var upper = document.querySelector("#upper");
+var num = document.querySelector("#num");
 
-// call function
+// call function to generate password
+function generatePassword() {
+var password = "";
+var passLength = parseInt(
+    prompt("Please set a password between 8 and 128 characters")
+);
+if (passLength < 8 || passLength > 128 || passLength ===  NaN || passLength === null) {
+alert ("8 to 128 characters must be entered. These can include special characters and numbers Please verify.")
+passwordText.value = "";
+return;
+else{
+    alert("Selected: " + passLength + "characters.");
+    char.textContent = passLength;
+}
+
+if (spChar) {
+    passSource.concat(passSpSource);
+}
+if (lower) {
+    passSource.concat(passLowerSource);
+}
+if (upper){
+    passSource.concat(passUpperSource);
+}
+if (num){
+    passSource.concat(passNumSource);
+}
+for (i = 0, i < passLength; i++; ) {
+    password = passSource.charAt(Math.floor(Math.random() * passSource.length);
+    return password;
+    }
+}
 
 // Write password to the #password input
 function writePassword() {
